@@ -1,0 +1,13 @@
+# This file lives in /simple-app/fleet.yaml
+defaultNamespace: dev-environment
+
+# Target Customization: Change settings only for your EKS cluster
+targetCustomizations:
+  - name: eks-production
+    clusterSelector:
+      matchLabels:
+        cluster.x-k8s.io/cluster-name: my-eks-test
+    config:
+      # You can override values here
+      values:
+        replicas: 5
